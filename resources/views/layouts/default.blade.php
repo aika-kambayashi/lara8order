@@ -8,6 +8,7 @@
         <link href="{{asset('css/style.css')}}" rel="stylesheet">
         @yield('css')
         <script src="{{asset('js/app.js')}}"></script>
+        @yield('script')
     </head>
     <body>
         @yield('menu')
@@ -18,6 +19,5 @@
                 </div>
             </div>
         </div>
-        @yield('script')
     </body>
 </html>

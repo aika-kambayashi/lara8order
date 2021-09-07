@@ -45,7 +45,34 @@ class OrderController extends Controller
         return view('order.edit', compact('order', 'customers'));
     }
 
-    public function update(Request $request, $id) {
+    public function edit2($id) {
+        $order = Order::find($id);
+        $customers = Customer::all();
+        return view('order.edit2', compact('order', 'customers'));
+    }
+
+    public function edit2ajax(Request $request) {
+        $result = [];
+        if ($request->ajax() && $id = $request->input('id')) {
+            // $this->validate($request, Order::$rules);
+            $validator = \Validator::make($request->all(), Order::$rules);
+            if ($validator->passes()) {
+                $order = Order::find($id);
+                $order->name = $request->input('name');
+                $order->customer_id = $request->input('customer_id');
+                if ($order->save()) {
+                    $result['status'] = "success";
+                    return response()->json($result);
+                }
+            } else {
+                $result['error'] = $validator->errors();
+            }
+        }
+        $result['status'] = 'error';
+        return response()->json($result);
+    }
+
+    public function update2(Request $request, $id) {
         $this->validate($request, Order::$rules);
         $order = Order::find($id);
         $columns = array_keys(Order::$rules);

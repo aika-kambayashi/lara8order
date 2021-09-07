@@ -23,7 +23,7 @@
     </tr>
 </table>
 <p align="center">
-    <a class="btn btn-primary" href="{{route('admin.order.edit', $order->id)}}">受注編集</a>
+    <a class="btn btn-primary" href="{{route('admin.order.edit2', $order->id)}}">受注編集2</a>
 </p>
 
 @if (!empty($order->order_details))

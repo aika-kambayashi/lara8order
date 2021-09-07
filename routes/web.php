@@ -44,7 +44,9 @@ Route::get('/admin/order/create', [App\Http\Controllers\OrderController::class,'
 Route::post('/admin/order', [App\Http\Controllers\OrderController::class,'store'])->name('admin.order.store');
 Route::get('/admin/order/{id}/show', [App\Http\Controllers\OrderController::class,'show'])->name('admin.order.show');
 Route::get('/admin/order/{id}/edit', [App\Http\Controllers\OrderController::class,'edit'])->name('admin.order.edit');
-Route::put('/admin/order/{id}', [App\Http\Controllers\OrderController::class,'update'])->name('admin.order.update');
+Route::get('/admin/order/{id}/edit2', [App\Http\Controllers\OrderController::class,'edit2'])->name('admin.order.edit2');
+Route::post('admin/order/{id}/edit2ajax', [App\Http\Controllers\OrderController::class,'edit2ajax'])->name('admin.order.edit2ajax');
+Route::put('/admin/order/{id}', [App\Http\Controllers\OrderController::class,'update2'])->name('admin.order.update2');
 
 Route::get('/admin/order/{id}/detail/create', [App\Http\Controllers\OrderDetailController::class,'create'])->name('admin.orderdetail.create');
 Route::post('/admin/order/{id}/detail', [App\Http\Controllers\OrderDetailController::class,'store'])->name('admin.orderdetail.store');
